@@ -1,0 +1,5 @@
+{
+  "spellright.language": ["es", "en"],
+  "spellright.documentTypes": ["markdown", "latex", "plaintext"],
+  "cSpell.words": ["cancion", "Cancion", "descripcion", "instanciamos"]
+}
