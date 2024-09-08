@@ -19,6 +19,7 @@ app.get("/posts", async (req, res) => {
   res.json(obtenerPost);
 });
 
+/* Escribir */
 app.post("/posts", async (req, res) => {
   const { titulo, url, descripcion } = req.body;
   await escribirPost(titulo, url, descripcion);
