@@ -1,5 +1,34 @@
 {
   "spellright.language": ["es", "en"],
   "spellright.documentTypes": ["markdown", "latex", "plaintext"],
-  "cSpell.words": ["cancion", "Cancion", "descripcion", "instanciamos"]
+  "cSpell.words": [
+    "activamos",
+    "Actualizado",
+    "actualizar",
+    "Agregado",
+    "cancion",
+    "Cancion",
+    "consulta",
+    "consultas",
+    "creado",
+    "crear",
+    "definimos",
+    "descripcion",
+    "eliminado",
+    "eliminar",
+    "encontrado",
+    "escribir",
+    "escuchando",
+    "Exiton",
+    "importamos",
+    "instanciamos",
+    "interno",
+    "likear",
+    "objetos",
+    "obtener",
+    "recibir",
+    "registros",
+    "servidor",
+    "titulo"
+  ]
 }
