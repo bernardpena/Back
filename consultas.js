@@ -50,4 +50,16 @@ const eliminarPost = async (id) => {
   return result.rows[0];
 };
 
-module.exports = { leerPost, escribirPost, actualizarPost, eliminarPost };
+/* Likear */
+const likePost = async (id) => {
+  const consulta = "UPDATE posts SET likes = likes + 1 WHERE id = $1 RETURNING *"; 
+  const values = [id];
+  const result = await pool.query(consulta, values);
+
+  if (result.rowCount === 0) {
+    throw new Error("Post no encontrado");
+  }
+  return result.rows[0]; 
+};
+
+module.exports = { leerPost, escribirPost, actualizarPost, eliminarPost, likePost };
