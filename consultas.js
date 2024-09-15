@@ -24,12 +24,14 @@ const escribirPost = async (titulo, url, descripcion) => {
   console.log("Post Agregado", result);
 };
 
-/* Actualizar */
+// /* Actualizar */
 const actualizarPost = async (id, titulo, url, descripcion) => {
   const consulta =
-    "UPDATE posts SET titulo = $1, img = $2, descripcion = $3 WHERE id = $4 RETURNING *"; 
+    "UPDATE posts SET titulo = $1, img = $2, descripcion = $3 WHERE id = $4 RETURNING *";
   const values = [titulo, url, descripcion, id];
+  console.log("BUSCANDO EL LINK", values);
   const result = await pool.query(consulta, values);
+  console.log("Post Actualizado", result);
 
   if (result.rowCount === 0) {
     throw new Error("Post no encontrado");
@@ -44,7 +46,7 @@ const eliminarPost = async (id) => {
   const result = await pool.query(consulta, values);
 
   if (result.rowCount === 0) {
-      throw new Error("Post no encontrado");
+    throw new Error("Post no encontrado");
   }
   console.log("Post eliminado", result.rows[0]);
   return result.rows[0];
@@ -52,14 +54,21 @@ const eliminarPost = async (id) => {
 
 /* Likear */
 const likePost = async (id) => {
-  const consulta = "UPDATE posts SET likes = likes + 1 WHERE id = $1 RETURNING *"; 
+  const consulta =
+    "UPDATE posts SET likes = likes + 1 WHERE id = $1 RETURNING *";
   const values = [id];
   const result = await pool.query(consulta, values);
 
   if (result.rowCount === 0) {
     throw new Error("Post no encontrado");
   }
-  return result.rows[0]; 
+  return result.rows[0];
 };
 
-module.exports = { leerPost, escribirPost, actualizarPost, eliminarPost, likePost };
+module.exports = {
+  leerPost,
+  escribirPost,
+  actualizarPost,
+  eliminarPost,
+  likePost,
+};
